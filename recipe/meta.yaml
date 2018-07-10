@@ -1,13 +1,13 @@
 {% set name = "the_silver_searcher" %}
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  git_url: https://github.com/ggreer/the_silver_searcher.git
-  git_tag: {{ version }}
+  url: https://github.com/ggreer/the_silver_searcher/archive/{{ version }}.tar.gz
+  sha256: cb416a0da7fe354a009c482ae709692ed567f8e7d2dad4d242e726dd7ca202f0
 
 build:
   number: 0
@@ -15,17 +15,19 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
     - automake
+    - make
     - cram
     - pkg-config 
+  host:
     - pcre
-    - xz 5.2.*
-    - zlib 1.2.*
+    - xz
+    - zlib
   run:
-    - pcre
-    - xz 5.2.*
-    - zlib 1.2.*
+    - {{ pin_compatible('pcre') }}
+    - xz
+    - zlib
 
 test:
   commands:
@@ -37,9 +39,9 @@ about:
   license_family: Apache
   license_file: LICENSE
   summary: 'A code searching tool similar to ack, with a focus on speed.'
-
   dev_url: https://github.com/ggreer/the_silver_searcher
 
 extra:
   recipe-maintainers:
     - nehaljwani
+    - dougalsutherland
