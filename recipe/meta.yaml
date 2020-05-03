@@ -24,10 +24,6 @@ requirements:
     - pcre
     - xz
     - zlib
-  run:
-    - {{ pin_compatible('pcre') }}
-    - xz
-    - zlib
 
 test:
   commands:
