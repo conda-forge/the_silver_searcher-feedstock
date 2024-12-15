@@ -6,5 +6,7 @@
 # and then hangs forever for some reason
 CLANG_FORMAT=no ./configure --prefix="${PREFIX}"
 make -j${CPU_COUNT}
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make test
+fi
 make -j${CPU_COUNT} install
