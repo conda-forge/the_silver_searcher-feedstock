@@ -20,10 +20,10 @@ requirements:
     - automake
     - make
     - cram
-    - pkg-config 
+    - pkg-config
   host:
     - pcre
-    - liblzma-devel
+    - xz
     - zlib
 
 test:
@@ -33,7 +33,6 @@ test:
 about:
   home: https://geoff.greer.fm/ag
   license: Apache-2.0
-  license_family: Apache
   license_file: LICENSE
   summary: 'A code searching tool similar to ack, with a focus on speed.'
   dev_url: https://github.com/ggreer/the_silver_searcher
