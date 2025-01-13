@@ -23,7 +23,7 @@ requirements:
     - pkg-config
   host:
     - pcre
-    - xz
+    - liblzma-devel
     - zlib
 
 test:
@@ -39,5 +39,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - nehaljwani
     - djsutherland
